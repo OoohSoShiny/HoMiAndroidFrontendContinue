@@ -9,7 +9,11 @@
         android:id="@+id/HomeFragment"
         android:name="homi.frontend.homiandroidfrontend.Fragments.HomeFragment"
         android:label="@string/StringHomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_HomeFragment_to_SingleAnimal"
+            app:destination="@id/SingleAnimal" />
+    </fragment>
     <fragment
         android:id="@+id/SingleAnimal"
         android:name="homi.frontend.homiandroidfrontend.Fragments.SingleAnimalFragment"
@@ -19,14 +23,5 @@
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/HomeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/animalListFragment"
-        android:name="homi.frontend.homiandroidfrontend.Fragments.AnimalListFragment"
-        android:label="fragment_animal_list"
-        tools:layout="@layout/fragment_animal_list" >
-        <action
-            android:id="@+id/action_animalListFragment_to_SingleAnimal"
-            app:destination="@id/SingleAnimal" />
     </fragment>
 </navigation>

@@ -2,6 +2,7 @@ package homi.frontend.homiandroidfrontend.Service;
 
 import homi.frontend.homiandroidfrontend.Response.AnimalNotesResponse;
 import homi.frontend.homiandroidfrontend.Response.AnimalSimpleResponse;
+import homi.frontend.homiandroidfrontend.Response.CompleteSingleAnimalResponse;
 import homi.frontend.homiandroidfrontend.Response.MatingResponse;
 import homi.frontend.homiandroidfrontend.Response.OrderGroupsResponse;
 import homi.frontend.homiandroidfrontend.Response.PastureGroupConnectorResponse;
@@ -22,7 +23,7 @@ public class ApiCaller
 
     private ApiCaller() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.33.111.8/")
+                .baseUrl("http://10.33.156.22/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         _getApi = retrofit.create(ApiInterface.class);
@@ -39,14 +40,11 @@ public class ApiCaller
         return notes;
     }
 
-    //TODO SINGLE ANIMAL CALL NEEDS FIX
-    /*
-    public Call<CompleteSingleAnimalResponse> completeSingleAnimalResponseCall()
+    public Call<CompleteSingleAnimalResponse> completeSingleAnimalResponseCall(int id)
     {
-        Call<CompleteSingleAnimalResponse> completeAnimal = _getApi.CompleteSingleAnimalCall;
+        Call<CompleteSingleAnimalResponse> completeAnimal = _getApi.CompleteSingleAnimalCall(id);
         return completeAnimal;
     }
-    */
 
     public Call<MatingResponse> matingResponseCall()
     {

@@ -11,15 +11,16 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import homi.frontend.homiandroidfrontend.databinding.FragmentSingleanimalBinding;
 
-public class SingleAnimalFragment extends Fragment {
+public class SingleAnimalFragment extends Fragment
+{
 
     private FragmentSingleanimalBinding binding;
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState
-    ) {
+            Bundle savedInstanceState)
+    {
 
         binding = FragmentSingleanimalBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -33,7 +34,8 @@ public class SingleAnimalFragment extends Fragment {
     }
 
     @Override
-    public void onDestroyView() {
+    public void onDestroyView()
+    {
         super.onDestroyView();
         binding = null;
     }
