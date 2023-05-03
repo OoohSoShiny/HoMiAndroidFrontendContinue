@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HoMi</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="action_settings">Settings</string>
+    <string name="StringHomeFragment">Home</string>
+    <string name="StringEinzelTier">Einzeltier</string>
+    <string name="StringId">Id</string>
+    <string name="StringStableNumber">Stallnummer</string>
+    <string name="StringEarMarkNumber">Ohrmarkennummer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
