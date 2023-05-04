@@ -8,4 +8,5 @@ public class CompleteSingleAnimalModel extends AnimalModel
     public List<String> allgnotizen;
     public List<PregnancyCheckupModel> tunotizen;
     public List<String> weidegruppen;
+    public String ordnungsgruppe;
 }

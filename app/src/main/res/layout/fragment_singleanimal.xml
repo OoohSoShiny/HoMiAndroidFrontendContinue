@@ -4,24 +4,271 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondFragment">
+    android:background="@color/HoMiLightGreen"
+    tools:context=".Fragments.SingleAnimalFragment">
 
     <TextView
-        android:id="@+id/textview_second"
+        android:id="@+id/TvSingleAnimalHeader"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        android:layout_height="50dp"
+        android:layout_marginTop="70dp"
+        android:text="@string/StringUnknownValueUnderlined"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_second"
+    <TextView
+        android:id="@+id/TvSingleAnimalHeaderFixedId"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/StringId"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/TvSingleAnimalHeader"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TvSingleAnimalEarNumberFixed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/StringEarMarkNumber"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/TvSingleAnimalEarNumberValue"
+        app:layout_constraintTop_toTopOf="@+id/TvSingleAnimalHeader" />
+
+    <TextView
+        android:id="@+id/TvSingleAnimalEarNumberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/StringUnknownValueUnderlined"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/TvSingleAnimalEarNumberFixed"
+        app:layout_constraintStart_toEndOf="@+id/TvSingleAnimalHeader" />
+
+    <View
+        android:id="@+id/ViewDividerfirst"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/HoMiDarkGreenDeep"
+        app:layout_constraintTop_toBottomOf="@+id/TvSingleAnimalHeader" />
+
+    <Button
+        android:id="@+id/Buttonback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="@string/previous"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/TvBirthDayFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/StringBirthday"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second" />
+        app:layout_constraintTop_toBottomOf="@+id/ViewDividerfirst" />
+
+    <TextView
+        android:id="@+id/TvBirthDayValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvBirthDayFixed" />
+
+    <TextView
+        android:id="@+id/TvOrderTypeFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/StringOrderType"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvBirthDayValue" />
+
+    <TextView
+        android:id="@+id/TvOrderTypeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvOrderTypeFixed" />
+
+    <View
+        android:id="@+id/ViewDividerSecond"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/HoMiDarkGreenDeep"
+        app:layout_constraintTop_toBottomOf="@+id/TvOrderTypeValue" />
+
+    <TextView
+        android:id="@+id/TvLastCheckupFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/StringLastCheckup"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDividerSecond" />
+
+    <TextView
+        android:id="@+id/TvLastCheckupValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvLastCheckupFixed" />
+
+    <TextView
+        android:id="@+id/TvNextCheckupFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringNextCheckup"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvLastCheckupValue" />
+
+    <TextView
+        android:id="@+id/TvNextCheckupValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvNextCheckupFixed" />
+
+    <TextView
+        android:id="@+id/TvPregnancyFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringIsPregnant"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvNextCheckupValue" />
+
+    <TextView
+        android:id="@+id/TvPregnancyValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvPregnancyFixed" />
+
+    <TextView
+        android:id="@+id/TvPregnantFixed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/StringSince"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.552"
+        app:layout_constraintStart_toEndOf="@+id/TvPregnancyFixed"
+        app:layout_constraintTop_toTopOf="@+id/TvPregnancyFixed" />
+
+    <TextView
+        android:id="@+id/TvPregnantValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/StringUnknownValue"
+        android:textSize="20sp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintStart_toStartOf="@+id/TvPregnantFixed"
+        app:layout_constraintTop_toBottomOf="@+id/TvPregnantFixed" />
+
+    <View
+        android:id="@+id/ViewDividerThird"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/HoMiDarkGreenDeep"
+        app:layout_constraintTop_toBottomOf="@+id/TvPregnancyValue" />
+
+    <ScrollView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/TvCheckupListFixed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/StringCheckupList"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/LVCheckupNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TvCheckupListFixed" />
+            <View
+                android:id="@+id/ViewDividerFourth"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/HoMiDarkGreenDeep"
+                app:layout_constraintTop_toBottomOf="@+id/TvPregnancyValue" />
+            <TextView
+                android:id="@+id/TvCheckupGeneralNotesFixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/StringNotes"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+            <ListView
+                android:id="@+id/LVNotes"
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/TvCheckupListFixed" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

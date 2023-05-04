@@ -11,7 +11,10 @@
         app:layout_constraintEnd_toStartOf="@+id/animalRowEarNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        />
+        android:background="@color/HoMiDarkGreenDeep"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/black"/>
 
     <TextView
         android:id="@+id/animalRowEarNumber"
@@ -19,7 +22,10 @@
         android:layout_height="50dp"
         android:layout_marginStart="100dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/HoMiOrange"
+        android:textAlignment="center"
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/animalStableNumber"
@@ -27,6 +33,9 @@
         android:layout_height="50dp"
         android:layout_marginStart="250dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/HoMiDarkGreenDeep"
+        android:textAlignment="center"
+        android:textSize="30sp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
