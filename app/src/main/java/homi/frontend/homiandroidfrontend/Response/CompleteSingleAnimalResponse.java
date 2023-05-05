@@ -7,5 +7,5 @@ import homi.frontend.homiandroidfrontend.Models.CompleteSingleAnimalModel;
 
 public class CompleteSingleAnimalResponse
 {
-    public List<CompleteSingleAnimalModel> CompleteSingleAnimals;
+    public List<CompleteSingleAnimalModel> animalCompleteModels;
 }

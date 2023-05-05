@@ -8,7 +8,7 @@
     tools:context=".Fragments.SingleAnimalFragment">
 
     <TextView
-        android:id="@+id/TvSingleAnimalHeader"
+        android:id="@+id/TvSingleAnimalHeaderValue"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="70dp"
@@ -30,7 +30,7 @@
         android:text="@string/StringId"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/TvSingleAnimalHeader"
+        app:layout_constraintEnd_toStartOf="@+id/TvSingleAnimalHeaderValue"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/TvSingleAnimalEarNumberValue"
-        app:layout_constraintTop_toTopOf="@+id/TvSingleAnimalHeader" />
+        app:layout_constraintTop_toTopOf="@+id/TvSingleAnimalHeaderValue" />
 
     <TextView
         android:id="@+id/TvSingleAnimalEarNumberValue"
@@ -52,7 +52,7 @@
         android:text="@string/StringUnknownValueUnderlined"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/TvSingleAnimalEarNumberFixed"
-        app:layout_constraintStart_toEndOf="@+id/TvSingleAnimalHeader" />
+        app:layout_constraintStart_toEndOf="@+id/TvSingleAnimalHeaderValue" />
 
     <View
         android:id="@+id/ViewDividerfirst"
@@ -60,7 +60,7 @@
         android:layout_height="2dp"
         android:layout_marginTop="15dp"
         android:background="@color/HoMiDarkGreenDeep"
-        app:layout_constraintTop_toBottomOf="@+id/TvSingleAnimalHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/TvSingleAnimalHeaderValue" />
 
     <Button
         android:id="@+id/Buttonback"
@@ -103,8 +103,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="@string/StringOrderType"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvBirthDayValue" />
 
@@ -134,8 +134,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="@string/StringLastCheckup"
-        android:textStyle="bold"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ViewDividerSecond" />
 
@@ -155,10 +155,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
         android:text="@string/StringNextCheckup"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvLastCheckupValue" />
 
@@ -167,9 +167,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
         android:text="@string/StringUnknownValue"
         android:textSize="20sp"
-        android:layout_marginTop="-10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvNextCheckupFixed" />
 
@@ -178,8 +178,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="@string/StringIsPregnant"
         android:layout_marginTop="5dp"
+        android:text="@string/StringIsPregnant"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -190,9 +190,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="-10dp"
         android:text="@string/StringUnknownValue"
         android:textSize="20sp"
-        android:layout_marginTop="-10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnancyFixed" />
 
@@ -212,9 +212,9 @@
         android:id="@+id/TvPregnantValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp"
         android:text="@string/StringUnknownValue"
         android:textSize="20sp"
-        android:layout_marginTop="-10dp"
         app:layout_constraintStart_toStartOf="@+id/TvPregnantFixed"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnantFixed" />
 
@@ -225,50 +225,15 @@
         android:background="@color/HoMiDarkGreenDeep"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnancyValue" />
 
-    <ScrollView
-        android:layout_marginTop="10dp"
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/singleAnimalViewpager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/TvCheckupListFixed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/StringCheckupList"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+    </androidx.viewpager.widget.ViewPager>
 
-        <ListView
-            android:id="@+id/LVCheckupNotes"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TvCheckupListFixed" />
-            <View
-                android:id="@+id/ViewDividerFourth"
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/HoMiDarkGreenDeep"
-                app:layout_constraintTop_toBottomOf="@+id/TvPregnancyValue" />
-            <TextView
-                android:id="@+id/TvCheckupGeneralNotesFixed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/StringNotes"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-            <ListView
-                android:id="@+id/LVNotes"
-                android:layout_width="wrap_content"
-                android:layout_height="200dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TvCheckupListFixed" />
-        </LinearLayout>
-    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

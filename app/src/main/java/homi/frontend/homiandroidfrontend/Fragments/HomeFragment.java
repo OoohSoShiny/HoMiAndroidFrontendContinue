@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import java.util.ArrayList;
 import android.widget.TextView;
 import android.widget.ListView;
 
@@ -13,8 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import homi.frontend.homiandroidfrontend.Adapter.AnimalsSimpleAdapter;
 import homi.frontend.homiandroidfrontend.Globals;
+import homi.frontend.homiandroidfrontend.Models.AnimalSimpleModel;
 import homi.frontend.homiandroidfrontend.R;
 import homi.frontend.homiandroidfrontend.Response.AnimalSimpleResponse;
 import homi.frontend.homiandroidfrontend.Service.ApiCaller;
@@ -26,6 +31,7 @@ import retrofit2.Response;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    AnimalsSimpleAdapter adapter;
 
     @Override
     public View onCreateView(
@@ -40,9 +46,8 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<AnimalSimpleResponse> call, Response<AnimalSimpleResponse> response)
             {
                 //Fill Adapter with body of the Api-Response
-                AnimalsSimpleAdapter adapter = new AnimalsSimpleAdapter(getContext(), response.body().animalsSimple);
+                adapter = new AnimalsSimpleAdapter(getContext(), response.body().animalsSimple);
                 binding.homeList.setAdapter(adapter);
-
             }
             //Getting no answer
             @Override
@@ -66,7 +71,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Globals.id = position;
+
+                Globals.Id =  adapter.GetAnimalId(position);
                 NavHostFragment.findNavController(HomeFragment.this)
                         .navigate(R.id.action_HomeFragment_to_SingleAnimal);
             }

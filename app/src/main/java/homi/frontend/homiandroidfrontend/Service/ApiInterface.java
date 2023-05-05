@@ -45,7 +45,7 @@ public interface ApiInterface
     @DELETE("api/Animals/{Id}")
     Call<Void> AnimalDelete(@Path("Id") int id);
     @GET("/api/Animals/{Id}")
-    Call<CompleteSingleAnimalModel> CompleteSingleAnimalCall(@Path("Id") int id);
+    Call<CompleteSingleAnimalResponse> CompleteSingleAnimalCall(@Path("Id") int id);
 
 
     @GET("/api/AnimalNotes")

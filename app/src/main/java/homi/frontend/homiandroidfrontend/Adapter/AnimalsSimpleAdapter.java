@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import homi.frontend.homiandroidfrontend.Globals;
 import homi.frontend.homiandroidfrontend.Models.AnimalSimpleModel;
 import homi.frontend.homiandroidfrontend.R;
 import homi.frontend.homiandroidfrontend.databinding.AnimalRowlayoutBinding;
@@ -16,17 +18,25 @@ import homi.frontend.homiandroidfrontend.databinding.AnimalRowlayoutBinding;
 public class AnimalsSimpleAdapter extends ArrayAdapter<AnimalSimpleModel>
 {
     LayoutInflater inflater;
+    private ArrayList<AnimalSimpleModel> _animals = new ArrayList<AnimalSimpleModel>();
 
     public AnimalsSimpleAdapter(Context context, List<AnimalSimpleModel> animals)
     {
         super(context, R.layout.animal_rowlayout);
+
+        _animals = new ArrayList<>();
 
         inflater = (LayoutInflater.from(context));
 
         if(animals != null)
         {
             addAll(animals);
+            _animals.addAll(animals);
         }
+    }
+    public int GetAnimalId(int position)
+    {
+        return _animals.get(position).id;
     }
 
     @Override public View getView(int i, View view, ViewGroup viewGroup)

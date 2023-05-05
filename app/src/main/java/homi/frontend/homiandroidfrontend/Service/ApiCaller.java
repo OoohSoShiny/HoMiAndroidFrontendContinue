@@ -41,10 +41,10 @@ public class ApiCaller
         return notes;
     }
 
-    public Call<CompleteSingleAnimalModel> completeSingleAnimalResponseCall(int id)
+    public Call<CompleteSingleAnimalResponse> animalCompleteModels(int id)
     {
-        Call<CompleteSingleAnimalModel> completeAnimal = _getApi.CompleteSingleAnimalCall(id);
-        return completeAnimal;
+        Call<CompleteSingleAnimalResponse> animalCompleteModels = _getApi.CompleteSingleAnimalCall(id);
+        return animalCompleteModels;
     }
 
     public Call<MatingResponse> matingResponseCall()

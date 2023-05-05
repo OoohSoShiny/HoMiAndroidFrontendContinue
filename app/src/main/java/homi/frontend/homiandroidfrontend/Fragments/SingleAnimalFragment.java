@@ -10,11 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import homi.frontend.homiandroidfrontend.Adapter.AnimalsSimpleAdapter;
-import homi.frontend.homiandroidfrontend.Adapter.NotesAdapter;
+import java.util.ArrayList;
+
 import homi.frontend.homiandroidfrontend.Globals;
 import homi.frontend.homiandroidfrontend.Models.CompleteSingleAnimalModel;
-import homi.frontend.homiandroidfrontend.Response.AnimalSimpleResponse;
+import homi.frontend.homiandroidfrontend.R;
 import homi.frontend.homiandroidfrontend.Response.CompleteSingleAnimalResponse;
 import homi.frontend.homiandroidfrontend.Service.ApiCaller;
 import homi.frontend.homiandroidfrontend.databinding.FragmentSingleanimalBinding;
@@ -32,15 +32,25 @@ public class SingleAnimalFragment extends Fragment
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState)
     {
-        ApiCaller.getInstance().completeSingleAnimalResponseCall(Globals.id).enqueue(new Callback<CompleteSingleAnimalModel>()
+        ApiCaller.getInstance().animalCompleteModels(Globals.Id).enqueue(new Callback<CompleteSingleAnimalResponse>()
         {
             //Getting answer
             @Override
-            public void onResponse(Call<CompleteSingleAnimalModel> call, Response<CompleteSingleAnimalModel> response)
+            public void onResponse(Call<CompleteSingleAnimalResponse> call, Response<CompleteSingleAnimalResponse> response)
             {
+                if(response.body() != null)
+                {
+                    CompleteSingleAnimalModel _animalCompleteModels = response.body().animalCompleteModels.get(0);
+
+                    binding.TvBirthDayValue.setText(_animalCompleteModels.geboren);
+                    binding.TvSingleAnimalHeader.setText(_animalCompleteModels.ohrmarkennummer);
+                    binding.TvSingleAnimalEarNumberValue.setText(_animalCompleteModels.stallnummer);
+                }
+                /*
                 //Fill Adapter with body of the Api-Response
                 if(response.body().allgnotizen.size() != 0)
                 {
+
                     NotesAdapter noteAdapter = new NotesAdapter(getContext(), response.body().allgnotizen);
                     binding.LVNotes.setAdapter(noteAdapter);
                 }
@@ -50,20 +60,17 @@ public class SingleAnimalFragment extends Fragment
                     NotesAdapter CheckupAdapter = new NotesAdapter(getContext(), response.body().tunotizen, 0);
                     binding.LVCheckupNotes.setAdapter(CheckupAdapter);
                 }
-
-
-
-
-                binding.TvBirthDayValue.setText(response.body().geboren.toString());
+                */
 
             }
             //Getting no answer
             @Override
-            public void onFailure(Call<CompleteSingleAnimalModel> call, Throwable t)
+            public void onFailure(Call<CompleteSingleAnimalResponse> call, Throwable t)
             {
                 Log.e("Verbindung konnte nicht hergestellt werden.", "Empty Body.", t);
             }
         });
+
 
         binding = FragmentSingleanimalBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -73,6 +80,15 @@ public class SingleAnimalFragment extends Fragment
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState)
     {
         super.onViewCreated(view, savedInstanceState);
+        binding.Buttonback.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                NavHostFragment.findNavController(SingleAnimalFragment.this)
+                        .navigate(R.id.action_SingleAnimal_To_HomeFragment);
+            }
+        });
 
     }
 

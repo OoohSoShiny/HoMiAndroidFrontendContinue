@@ -21,4 +21,6 @@
     <string name="StringNotes">Notizen</string>
     <string name="StringOrderType">Typ</string>
     <string name="StringCheckupList">Untersuchungsnotizen</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
