@@ -5,8 +5,8 @@ public class CompleteSingleAnimalModel extends AnimalModel
 {
     public String vatertier;
     public String muttertier;
-    public List<String> allgnotizen;
-    public List<PregnancyCheckupModel> tunotizen;
-    public List<String> weidegruppen;
+    public List<AnimalNotesModel> allgNotizen;
+    public List<CheckupNoteModel> tuNotizen;
+    public List<PastureModel> weidegruppen;
     public String ordnungsgruppe;
 }

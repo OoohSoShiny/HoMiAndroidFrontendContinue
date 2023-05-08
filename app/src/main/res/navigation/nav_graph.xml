@@ -23,5 +23,28 @@
         <action
             android:id="@+id/action_SingleAnimal_To_HomeFragment"
             app:destination="@id/HomeFragment" />
+        <action
+            android:id="@+id/action_SingleAnimal_to_checkupNotesSingleAnimalFragment"
+            app:destination="@id/checkupNotesSingleAnimalFragment" />
+        <action
+            android:id="@+id/action_SingleAnimal_to_generalNotesFragment"
+            app:destination="@id/generalNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkupNotesSingleAnimalFragment"
+        android:name="homi.frontend.homiandroidfrontend.Fragments.CheckupNotesSingleAnimalFragment"
+        android:label="fragment_checkup_notes_single_animal"
+        tools:layout="@layout/fragment_checkup_notes_single_animal" >
+        <action
+            android:id="@+id/action_checkupNotesSingleAnimalFragment_to_SingleAnimal"
+            app:destination="@id/SingleAnimal" />
+    </fragment>
+    <fragment
+        android:id="@+id/generalNotesFragment"
+        android:name="homi.frontend.homiandroidfrontend.Fragments.GeneralNotesFragment"
+        android:label="GeneralNotesFragment" >
+        <action
+            android:id="@+id/action_generalNotesFragment_to_SingleAnimal"
+            app:destination="@id/SingleAnimal" />
     </fragment>
 </navigation>

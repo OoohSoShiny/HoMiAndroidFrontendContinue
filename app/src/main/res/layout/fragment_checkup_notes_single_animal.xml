@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.CheckupNotesSingleAnimalFragment"
+    android:id="@+id/checkupnotesSingleAnimalFragmentLayout"
+    android:background="@color/HoMiLightGreen">
+
+    <TextView
+        android:id="@+id/CheckupNoteListHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/StringCheckupList"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/TvDateFixed"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/StringDate"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CheckupNoteListHeader" />
+
+    <TextView
+        android:id="@+id/TvNoteFixed"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="@string/StringNotes"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TvDateFixed"
+        app:layout_constraintTop_toBottomOf="@+id/CheckupNoteListHeader" />
+
+    <ListView
+        android:id="@+id/CheckupList"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TvNoteFixed" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

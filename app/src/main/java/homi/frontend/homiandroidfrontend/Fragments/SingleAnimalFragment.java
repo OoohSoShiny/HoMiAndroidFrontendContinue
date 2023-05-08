@@ -10,8 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import java.util.ArrayList;
-
 import homi.frontend.homiandroidfrontend.Globals;
 import homi.frontend.homiandroidfrontend.Models.CompleteSingleAnimalModel;
 import homi.frontend.homiandroidfrontend.R;
@@ -26,6 +24,9 @@ public class SingleAnimalFragment extends Fragment
 {
 
     private FragmentSingleanimalBinding binding;
+    private GeneralNotesFragment generalNotesFragment = new GeneralNotesFragment();
+    private CheckupNotesSingleAnimalFragment checkupNotesSingleAnimalFragment = new CheckupNotesSingleAnimalFragment();
+
 
     @Override
     public View onCreateView(
@@ -42,27 +43,14 @@ public class SingleAnimalFragment extends Fragment
                 {
                     CompleteSingleAnimalModel _animalCompleteModels = response.body().animalCompleteModels.get(0);
 
+                    Globals.GlobalAnimalNotes = _animalCompleteModels.allgNotizen;
+                    Globals.GlobalCheckupNotes = _animalCompleteModels.tuNotizen;
                     binding.TvBirthDayValue.setText(_animalCompleteModels.geboren);
-                    binding.TvSingleAnimalHeader.setText(_animalCompleteModels.ohrmarkennummer);
+                    binding.TvSingleAnimalHeaderValue.setText(_animalCompleteModels.ohrmarkennummer);
                     binding.TvSingleAnimalEarNumberValue.setText(_animalCompleteModels.stallnummer);
                 }
-                /*
-                //Fill Adapter with body of the Api-Response
-                if(response.body().allgnotizen.size() != 0)
-                {
-
-                    NotesAdapter noteAdapter = new NotesAdapter(getContext(), response.body().allgnotizen);
-                    binding.LVNotes.setAdapter(noteAdapter);
-                }
-
-                if(response.body().tunotizen.size() != 0)
-                {
-                    NotesAdapter CheckupAdapter = new NotesAdapter(getContext(), response.body().tunotizen, 0);
-                    binding.LVCheckupNotes.setAdapter(CheckupAdapter);
-                }
-                */
-
             }
+
             //Getting no answer
             @Override
             public void onFailure(Call<CompleteSingleAnimalResponse> call, Throwable t)
@@ -90,6 +78,24 @@ public class SingleAnimalFragment extends Fragment
             }
         });
 
+        binding.ButtonCheckupList.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                NavHostFragment.findNavController(SingleAnimalFragment.this)
+                        .navigate(R.id.action_SingleAnimal_to_checkupNotesSingleAnimalFragment);
+            }
+        });
+
+        binding.ButtonGeneralList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                NavHostFragment.findNavController(SingleAnimalFragment.this)
+                        .navigate(R.id.action_SingleAnimal_to_generalNotesFragment);
+            }
+        });
     }
 
     @Override

@@ -5,33 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/TvCheckupNotes"
-            android:layout_width="250dp"
-            android:layout_height="100dp"
-            android:background="@color/HoMiDarkGreenDeep"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </ScrollView>
 
     <TextView
-        android:id="@+id/TvCheckupDate"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:background="@color/HoMiOrange"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/scrollView2"
+        android:id="@+id/TvDateValue"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/StringDate"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/TvNoteValue"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="@string/StringNotes"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TvDateValue"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

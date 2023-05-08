@@ -45,7 +45,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<AnimalSimpleResponse> call, Response<AnimalSimpleResponse> response)
             {
-                //Fill Adapter with body of the Api-Response
                 adapter = new AnimalsSimpleAdapter(getContext(), response.body().animalsSimple);
                 binding.homeList.setAdapter(adapter);
             }
@@ -85,5 +84,4 @@ public class HomeFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-    //Click listener for the listview
 }

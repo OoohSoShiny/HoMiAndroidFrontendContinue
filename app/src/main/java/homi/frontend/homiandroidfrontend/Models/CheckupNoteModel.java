@@ -1,8 +1,8 @@
 package homi.frontend.homiandroidfrontend.Models;
 
-public class AnimalNotesModel
+public class CheckupNoteModel
 {
     public int id;
+    public String termin;
     public String notiz;
-    public int tiere_id;
 }

@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="80dp"
         android:layout_marginTop="50dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:text="@string/StringId"
         android:textSize="50sp"
         android:textStyle="bold"
@@ -57,9 +57,9 @@
     <View
         android:id="@+id/ViewDividerfirst"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="5dp"
         android:layout_marginTop="15dp"
-        android:background="@color/HoMiDarkGreenDeep"
+        android:background="@color/HoMiOrange"
         app:layout_constraintTop_toBottomOf="@+id/TvSingleAnimalHeaderValue" />
 
     <Button
@@ -122,9 +122,9 @@
     <View
         android:id="@+id/ViewDividerSecond"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="5dp"
         android:layout_marginTop="10dp"
-        android:background="@color/HoMiDarkGreenDeep"
+        android:background="@color/HoMiOrange"
         app:layout_constraintTop_toBottomOf="@+id/TvOrderTypeValue" />
 
     <TextView
@@ -221,19 +221,31 @@
     <View
         android:id="@+id/ViewDividerThird"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/HoMiDarkGreenDeep"
+        android:layout_height="5dp"
+        android:background="@color/HoMiOrange"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnancyValue" />
 
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/singleAnimalViewpager"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/ButtonGeneralList"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringGeneralNotes"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird">
-
-    </androidx.viewpager.widget.ViewPager>
+        app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/ButtonCheckupList"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/StringCheckupList"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird"
+        android:layout_marginTop="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

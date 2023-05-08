@@ -10,25 +10,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import homi.frontend.homiandroidfrontend.Adapter.GeneralNotesAdapter;
+import homi.frontend.homiandroidfrontend.Adapter.PregnancyNotesAdapter;
 import homi.frontend.homiandroidfrontend.Globals;
+import homi.frontend.homiandroidfrontend.databinding.FragmentCheckupNotesSingleAnimalBinding;
+
 import homi.frontend.homiandroidfrontend.R;
-import homi.frontend.homiandroidfrontend.databinding.FragmentGeneralNotesBinding;
-import homi.frontend.homiandroidfrontend.databinding.FragmentHomeBinding;
 
-
-public class GeneralNotesFragment extends Fragment
+public class CheckupNotesSingleAnimalFragment extends Fragment
 {
-    FragmentGeneralNotesBinding binding;
-    GeneralNotesAdapter adapter;
-
-    public GeneralNotesFragment()
+    FragmentCheckupNotesSingleAnimalBinding binding;
+    PregnancyNotesAdapter adapter;
+    public CheckupNotesSingleAnimalFragment()
     {
+        // Required empty public constructor
     }
 
-    public static GeneralNotesFragment newInstance()
+    public static CheckupNotesSingleAnimalFragment newInstance()
     {
-        GeneralNotesFragment fragment = new GeneralNotesFragment();
+        CheckupNotesSingleAnimalFragment fragment = new CheckupNotesSingleAnimalFragment();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);
@@ -42,7 +41,6 @@ public class GeneralNotesFragment extends Fragment
         if (getArguments() != null)
         {
 
-
         }
     }
 
@@ -50,10 +48,9 @@ public class GeneralNotesFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        adapter = new GeneralNotesAdapter(getContext(), Globals.GlobalAnimalNotes);
-        binding = FragmentGeneralNotesBinding.inflate(inflater, container, false);
-
-        binding.generalNotesListLayout.setAdapter(adapter);
+        adapter = new PregnancyNotesAdapter(getContext(), Globals.GlobalCheckupNotes);
+        binding = FragmentCheckupNotesSingleAnimalBinding.inflate(inflater, container, false);
+        binding.CheckupList.setAdapter(adapter);
         // Inflate the layout for this fragment
         return binding.getRoot();
     }

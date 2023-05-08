@@ -21,6 +21,10 @@
     <string name="StringNotes">Notizen</string>
     <string name="StringOrderType">Typ</string>
     <string name="StringCheckupList">Untersuchungsnotizen</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="StringGeneralNotes">Allgemeine Notizen</string>
+    <string name="StringCheckupHeader">Trächtigkeitsnotizen</string>
+    <string name="StringDate">Datum</string>
+    <string name="StringDelete">Löschen</string>
+    <string name="StringArrow">&#x2192;</string>
+    <string name="StringEmpty">Leer</string>
 </resources>

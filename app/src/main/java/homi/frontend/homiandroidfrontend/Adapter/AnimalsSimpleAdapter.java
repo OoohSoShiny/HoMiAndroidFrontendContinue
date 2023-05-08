@@ -25,7 +25,6 @@ public class AnimalsSimpleAdapter extends ArrayAdapter<AnimalSimpleModel>
         super(context, R.layout.animal_rowlayout);
 
         _animals = new ArrayList<>();
-
         inflater = (LayoutInflater.from(context));
 
         if(animals != null)
