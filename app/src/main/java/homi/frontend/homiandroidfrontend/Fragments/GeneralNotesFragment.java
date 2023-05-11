@@ -5,13 +5,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 import homi.frontend.homiandroidfrontend.Adapter.GeneralNotesAdapter;
 import homi.frontend.homiandroidfrontend.Globals;
+import homi.frontend.homiandroidfrontend.Service.ApiCaller;
 import homi.frontend.homiandroidfrontend.databinding.FragmentGeneralNotesBinding;
 import homi.frontend.homiandroidfrontend.databinding.NotesRowlayoutBinding;
 
@@ -50,23 +54,12 @@ public class GeneralNotesFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
     {
-        Globals.GeneralNotesButtonList.clear();
+
         adapter = new GeneralNotesAdapter(getContext(), Globals.GlobalAnimalNotes);
         binding = FragmentGeneralNotesBinding.inflate(inflater, container, false);
 
         binding.generalNotesListLayout.setAdapter(adapter);
 
-        for(Button button : Globals.GeneralNotesButtonList)
-        {
-            button.setOnClickListener(new View.OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-
-                }
-            });
-        }
         // Inflate the layout for this fragment
         return binding.getRoot();
     }
@@ -75,6 +68,25 @@ public class GeneralNotesFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
+        if(Globals.GeneralNotesButtonList == null)
+        {
+            Globals.GeneralNotesButtonList = new ArrayList<>();
+        }
+        for(int i = 0; i < Globals.GeneralNotesButtonList.size(); i++)
+        {
+            final int currentButton = i;
+            Globals.GeneralNotesButtonList.get(i).setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Log.e("The value of i is", String.valueOf(currentButton));
+                    Log.e("The Value of the current button is", String.valueOf(Globals.GeneralNotesButtonList.get(currentButton)));
 
+                    ApiCaller.getInstance().animalNoteDelete(Globals.GlobalAnimalNotes.get(currentButton).id);
+                    adapter.notifyDataSetChanged();
+                }
+            });
+        }
     }
 }

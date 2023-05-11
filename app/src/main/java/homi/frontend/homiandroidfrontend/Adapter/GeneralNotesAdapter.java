@@ -18,6 +18,8 @@ public class GeneralNotesAdapter extends ArrayAdapter<AnimalNotesModel>
 {
     LayoutInflater inflater;
     boolean colorSet = false;
+
+    NotesRowlayoutBinding binding;
     private ArrayList<AnimalNotesModel> _notes;
 
     public GeneralNotesAdapter(Context context, List<AnimalNotesModel> standardNotes)
