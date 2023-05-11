@@ -1,5 +1,4 @@
 package homi.frontend.homiandroidfrontend.Models;
-import java.time.LocalDateTime;
 
 public class AnimalModel extends AnimalSimpleModel
 {

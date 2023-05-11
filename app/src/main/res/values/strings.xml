@@ -14,12 +14,18 @@
     <string name="StringUnknownValueUnderlined"><u>Unbekannt</u></string>
     <string name="StringUnknownValue">Unbekannt</string>
     <string name="StringBirthday">Geburtsdatum</string>
+    <string name="StringBirthdayValue">Unbekannt</string>
     <string name="StringLastCheckup">Letzte TU</string>
+    <string name="StringLastCheckupValue">Unbekannt</string>
     <string name="StringNextCheckup">Nächste TU</string>
+    <string name="StringNextCheckupValue">Unbekannt</string>
     <string name="StringIsPregnant">Trächtig</string>
+    <string name="StringIsPregnantValue">Unbekannt</string>
     <string name="StringSince">Seit</string>
+    <string name="StringPregnantSinceValue">Unbekannt</string>
     <string name="StringNotes">Notizen</string>
     <string name="StringOrderType">Typ</string>
+    <string name="StringOrderTypeValue">Unbekannt</string>
     <string name="StringCheckupList">Untersuchungsnotizen</string>
     <string name="StringGeneralNotes">Allgemeine Notizen</string>
     <string name="StringCheckupHeader">Trächtigkeitsnotizen</string>
@@ -27,4 +33,10 @@
     <string name="StringDelete">Löschen</string>
     <string name="StringArrow">&#x2192;</string>
     <string name="StringEmpty">Leer</string>
+    <string name="StringAccept">Akzeptieren</string>
+    <string name="StringCancel">Abbrechen</string>
+    <string name="StringNo">Nein</string>
+    <string name="StringDashes">----</string>
+    <string name="StringAnimals">Tiere</string>
+    <string name="StringSearchfield">Suchfeld</string>
 </resources>

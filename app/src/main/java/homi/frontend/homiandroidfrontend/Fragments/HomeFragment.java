@@ -1,6 +1,8 @@
 package homi.frontend.homiandroidfrontend.Fragments;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +34,8 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     AnimalsSimpleAdapter adapter;
+    String enteredString;
+    List<AnimalSimpleModel> queryResult;
 
     @Override
     public View onCreateView(
@@ -45,8 +49,13 @@ public class HomeFragment extends Fragment {
             @Override
             public void onResponse(Call<AnimalSimpleResponse> call, Response<AnimalSimpleResponse> response)
             {
-                adapter = new AnimalsSimpleAdapter(getContext(), response.body().animalsSimple);
-                binding.homeList.setAdapter(adapter);
+                Globals.SimpleAnimalList = new ArrayList<>();
+                if(response.body() != null)
+                {
+                    Globals.SimpleAnimalList = response.body().animalsSimple;
+                    adapter = new AnimalsSimpleAdapter(getContext(), response.body().animalsSimple);
+                    binding.homeList.setAdapter(adapter);
+                }
             }
             //Getting no answer
             @Override
@@ -74,6 +83,37 @@ public class HomeFragment extends Fragment {
                 Globals.Id =  adapter.GetAnimalId(position);
                 NavHostFragment.findNavController(HomeFragment.this)
                         .navigate(R.id.action_HomeFragment_to_SingleAnimal);
+            }
+        });
+
+        binding.EtHomeUserInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+                //Not Used
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count)
+            {
+                queryResult = new ArrayList<>();
+                enteredString = binding.EtHomeUserInput.getText().toString();
+                for(AnimalSimpleModel wholeEntry : Globals.SimpleAnimalList)
+                {
+                    if(wholeEntry.ohrmarkennummer.contains(enteredString) || Integer.toString(wholeEntry.id).contains(enteredString)
+                    || wholeEntry.stallnummer.contains(enteredString))
+                    {
+                        queryResult.add(wholeEntry);
+                    }
+                }
+                adapter.clear();
+                adapter.addAll(queryResult);
+                adapter.notifyDataSetChanged();
+            }
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                //Not used
             }
         });
     }

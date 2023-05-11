@@ -62,17 +62,6 @@
         android:background="@color/HoMiOrange"
         app:layout_constraintTop_toBottomOf="@+id/TvSingleAnimalHeaderValue" />
 
-    <Button
-        android:id="@+id/Buttonback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="@string/previous"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/TvBirthDayFixed"
         android:layout_width="wrap_content"
@@ -91,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringBirthdayValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvBirthDayFixed" />
@@ -114,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringOrderTypeValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvOrderTypeFixed" />
@@ -145,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringLastCheckupValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvLastCheckupFixed" />
@@ -168,7 +157,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringNextCheckupValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvNextCheckupFixed" />
@@ -191,7 +180,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringIsPregnantValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnancyFixed" />
@@ -213,7 +202,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="-10dp"
-        android:text="@string/StringUnknownValue"
+        android:text="@string/StringPregnantSinceValue"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/TvPregnantFixed"
         app:layout_constraintTop_toBottomOf="@+id/TvPregnantFixed" />
@@ -236,16 +225,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird"
         android:layout_marginTop="20dp"/>
+
     <Button
         android:id="@+id/ButtonCheckupList"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:text="@string/StringCheckupList"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ViewDividerThird"
-        android:layout_marginTop="100dp"/>
+        app:layout_constraintStart_toStartOf="@+id/ButtonGeneralList"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonGeneralList"
+        android:layout_marginTop="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

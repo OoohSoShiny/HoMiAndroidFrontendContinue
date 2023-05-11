@@ -8,4 +8,7 @@
     <color name="HoMiLightGreenHighlight">#DEE59E</color>
     <color name="HoMiOrange">#E3B448</color>
     <color name="HoMiOrangeStrong">#E2A218</color>
+    <color name="ListFirstRow">#E2D88C</color>
+    <color name="ListSecondRow">#D1E2A5</color>
+
 </resources>

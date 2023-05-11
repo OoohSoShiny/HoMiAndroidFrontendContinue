@@ -1,5 +1,6 @@
 package homi.frontend.homiandroidfrontend.Service;
 
+import homi.frontend.homiandroidfrontend.Models.AnimalNotesModel;
 import homi.frontend.homiandroidfrontend.Models.CompleteSingleAnimalModel;
 import homi.frontend.homiandroidfrontend.Response.AnimalNotesResponse;
 import homi.frontend.homiandroidfrontend.Response.AnimalSimpleResponse;
@@ -39,6 +40,12 @@ public class ApiCaller
     {
         Call<AnimalNotesResponse> notes = _getApi.AnimalNoteCall();
         return notes;
+    }
+    public Call<AnimalNotesModel> animalNoteDelete(int id)
+    {
+        Call<Void> deleteNotes = _getApi.AnimalNotesDelete(id);
+
+        return null;
     }
 
     public Call<CompleteSingleAnimalResponse> animalCompleteModels(int id)
