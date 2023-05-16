@@ -10,8 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -58,38 +68,42 @@ public class SingleAnimalFragment extends Fragment
 
 
                     //This Area calculates the next and last Pregnancy Checkup
-                    String currentDateCheckup = FormatStringToDate(new Date().toString());
-                    int currentDatePlaced = 0;
-                    ArrayList<String> datelist = new ArrayList<String>();
+                    Date today = new Date();
+                    ArrayList<Date> datelist = new ArrayList<Date>();
+                    SimpleDateFormat formatter = new SimpleDateFormat(Globals.DateTimeFormat);
 
                     for (CheckupNoteModel noteModel : _animalCompleteModels.tuNotizen)
                     {
-                        datelist.add(FormatStringToDate(noteModel.termin));
-                    }
-
-                    boolean dateAfterExists = false;
-                    boolean dateBeforeExists = false;
-                    Collections.sort(datelist);
-                    int counter = 0;
-
-                    for (String date : datelist)
-                    {
-                        if (date.compareTo(currentDateCheckup) < 0)
+                        try
                         {
-                            dateAfterExists = true;
+                            datelist.add(formatter.parse(noteModel.termin.substring(0,9) + " " + noteModel.termin.substring(11, 15)));
+                        }
+                        catch (ParseException e)
+                        {
+
+                        }
+                    }
+                    Collections.sort(datelist);
+
+                    for (int i = 0; i < datelist.size(); i++)
+                    {
+                        if (datelist.get(i).compareTo(today) < 0)
+                        {
+                            binding.TvLastCheckupValue.setText(String.valueOf(datelist.get(i)));
+                        }
+                        else
+                        {
+                            binding.TvNextCheckupValue.setText(String.valueOf(datelist.get(i)));
                             break;
                         }
-                        dateBeforeExists = true;
-                        counter++;
                     }
-                    if(dateAfterExists)
+
+                    if(datelist.isEmpty())
                     {
-                        binding.TvNextCheckupValue.setText(datelist.get(counter));
+                        binding.TvLastCheckupValue.setText(R.string.StringNoAppointment);
+                        binding.TvNextCheckupValue.setText(R.string.StringNoAppointment);
                     }
-                    if(dateBeforeExists)
-                    {
-                        binding.TvLastCheckupValue.setText(datelist.get(counter-1));
-                    }
+
 
                     //Placeholder Values
                     binding.TvPregnantValue.setText(getResources().getString(R.string.StringNo));

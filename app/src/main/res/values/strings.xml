@@ -39,4 +39,6 @@
     <string name="StringDashes">----</string>
     <string name="StringAnimals">Tiere</string>
     <string name="StringSearchfield">Suchfeld</string>
+    <string name="todo">TODO</string>
+    <string name="StringNoAppointment">Kein Termin!</string>
 </resources>

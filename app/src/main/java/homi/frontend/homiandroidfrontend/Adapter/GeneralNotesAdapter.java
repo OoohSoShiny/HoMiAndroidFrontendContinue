@@ -51,29 +51,8 @@ public class GeneralNotesAdapter extends ArrayAdapter<AnimalNoteWithButtonModel>
         AnimalNoteWithButtonModel currentNote = getItem(i);
 
         binding.noteLayoutnote.setText(currentNote.notiz);
-        binding.noteLayoutid.setText(String.valueOf(currentNote.id));
-        
-        binding.buttonDelete.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                ApiCaller.getInstance().animalNoteDelete(4).enqueue(new Callback<AnimalNotesModel>()
-                {
-                    @Override
-                    public void onResponse(Call<AnimalNotesModel> call, Response<AnimalNotesModel> response)
-                    {
+        binding.noteLayoutid.setText(String.valueOf(currentNote.tiere_id));
 
-                    }
-
-                    @Override
-                    public void onFailure(Call<AnimalNotesModel> call, Throwable t)
-                    {
-
-                    }
-                });
-            }
-        });
 
         if (colorSet)
         {
