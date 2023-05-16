@@ -6,27 +6,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import homi.frontend.homiandroidfrontend.Globals;
 import homi.frontend.homiandroidfrontend.Models.AnimalNotesModel;
+import homi.frontend.homiandroidfrontend.Models.AnimalNoteWithButtonModel;
 import homi.frontend.homiandroidfrontend.R;
+import homi.frontend.homiandroidfrontend.Service.ApiCaller;
 import homi.frontend.homiandroidfrontend.databinding.NotesRowlayoutBinding;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class GeneralNotesAdapter extends ArrayAdapter<AnimalNotesModel>
+public class GeneralNotesAdapter extends ArrayAdapter<AnimalNoteWithButtonModel>
 {
     LayoutInflater inflater;
     boolean colorSet = false;
 
-    NotesRowlayoutBinding binding;
-    private ArrayList<AnimalNotesModel> _notes;
-
-    public GeneralNotesAdapter(Context context, List<AnimalNotesModel> standardNotes)
+    public GeneralNotesAdapter(Context context, List<AnimalNoteWithButtonModel> standardNotes)
     {
         super(context, R.layout.notes_rowlayout);
 
-        _notes = new ArrayList<>();
         inflater = (LayoutInflater.from(context));
 
 
@@ -48,11 +48,32 @@ public class GeneralNotesAdapter extends ArrayAdapter<AnimalNotesModel>
             binding = NotesRowlayoutBinding.bind(view);
         }
 
-        AnimalNotesModel currentNote = getItem(i);
+        AnimalNoteWithButtonModel currentNote = getItem(i);
 
         binding.noteLayoutnote.setText(currentNote.notiz);
         binding.noteLayoutid.setText(String.valueOf(currentNote.id));
-        Globals.GeneralNotesButtonList.add(binding.buttonDelete);
+        
+        binding.buttonDelete.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ApiCaller.getInstance().animalNoteDelete(4).enqueue(new Callback<AnimalNotesModel>()
+                {
+                    @Override
+                    public void onResponse(Call<AnimalNotesModel> call, Response<AnimalNotesModel> response)
+                    {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<AnimalNotesModel> call, Throwable t)
+                    {
+
+                    }
+                });
+            }
+        });
 
         if (colorSet)
         {
@@ -60,14 +81,13 @@ public class GeneralNotesAdapter extends ArrayAdapter<AnimalNotesModel>
             binding.noteLayoutid.setBackgroundColor(Globals.FirstRowColor);
             binding.noteLayoutnote.setBackgroundColor(Globals.FirstRowColor);
         }
+
         else
         {
             colorSet = true;
             binding.noteLayoutid.setBackgroundColor(Globals.SecondRowColor);
             binding.noteLayoutnote.setBackgroundColor(Globals.SecondRowColor);
         }
-
-
         return binding.getRoot();
     }
 }

@@ -15,7 +15,6 @@ public class Globals
     public static List<AnimalNotesModel> GlobalAnimalNotes;
     public static List<CheckupNoteModel> GlobalCheckupNotes;
     public static List<AnimalSimpleModel> SimpleAnimalList;
-    public static List<Button> GeneralNotesButtonList;
     public static int FirstRowColor;
     public static int SecondRowColor;
 }
