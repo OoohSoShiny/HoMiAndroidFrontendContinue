@@ -35,7 +35,6 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
     AnimalsSimpleAdapter adapter;
     String enteredString;
-    List<AnimalSimpleModel> queryResult;
 
     @Override
     public View onCreateView(
@@ -80,7 +79,7 @@ public class HomeFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
 
-                Globals.Id =  adapter.GetAnimalId(position);
+                Globals.Id =  Globals.SimpleAnimalListQuery.get(position).id;
                 NavHostFragment.findNavController(HomeFragment.this)
                         .navigate(R.id.action_HomeFragment_to_SingleAnimal);
             }
@@ -96,18 +95,18 @@ public class HomeFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count)
             {
-                queryResult = new ArrayList<>();
+                Globals.SimpleAnimalListQuery = new ArrayList<>();
                 enteredString = binding.EtHomeUserInput.getText().toString();
                 for(AnimalSimpleModel wholeEntry : Globals.SimpleAnimalList)
                 {
                     if(wholeEntry.ohrmarkennummer.contains(enteredString) || Integer.toString(wholeEntry.id).contains(enteredString)
                     || wholeEntry.stallnummer.contains(enteredString))
                     {
-                        queryResult.add(wholeEntry);
+                        Globals.SimpleAnimalListQuery.add(wholeEntry);
                     }
                 }
                 adapter.clear();
-                adapter.addAll(queryResult);
+                adapter.addAll(Globals.SimpleAnimalListQuery);
                 adapter.notifyDataSetChanged();
             }
             @Override

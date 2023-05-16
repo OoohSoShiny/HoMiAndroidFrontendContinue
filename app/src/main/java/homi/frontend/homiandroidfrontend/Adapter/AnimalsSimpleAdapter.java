@@ -36,10 +36,6 @@ public class AnimalsSimpleAdapter extends ArrayAdapter<AnimalSimpleModel>
             _animals.addAll(animals);
         }
     }
-    public int GetAnimalId(int position)
-    {
-        return _animals.get(position).id;
-    }
 
     @Override public View getView(int i, View view, ViewGroup viewGroup)
     {

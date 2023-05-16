@@ -11,11 +11,11 @@ import homi.frontend.homiandroidfrontend.Models.CheckupNoteModel;
 public class Globals
 {
     public static int Id;
-    public static String DateFormat = "dd.MM.yyyy";
     public static String DateTimeFormat = "yyyy-MM-dd hh:mm";
     public static List<AnimalNotesModel> GlobalAnimalNotes;
     public static List<CheckupNoteModel> GlobalCheckupNotes;
     public static List<AnimalSimpleModel> SimpleAnimalList;
+    public static List<AnimalSimpleModel> SimpleAnimalListQuery;
     public static int FirstRowColor;
     public static int SecondRowColor;
 }
